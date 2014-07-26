@@ -1,0 +1,124 @@
+<?xml version="1.0" ?>
+
+<configuration>
+
+<property>
+
+<name>http.agent.name</name>
+
+<value>nutch-solr-integration</value>
+
+</property>
+
+<property>
+
+<name>generate.max.per.host</name>
+
+<value>100</value>
+
+</property>
+
+<property>
+
+<name>plugin.includes</name>
+
+<value>protocol-http|gk-urlfilter|urlfilter-regex|urlfilter-domain|gk-htmlparser|gk-indexingfilter|index-(basic|anchor)|scoring-opic|urlnormalizer-(pass|regex|basic)</value>
+
+</property>
+
+<property>
+
+<name>gk.parser.metadata.description.file</name>
+
+<value>gk.metadata.description.xml</value>
+
+</property>
+
+<property>
+ <name>storage.data.store.class</name>
+ <value>org.apache.gora.hbase.store.HBaseStore</value>
+ <description>Default class for storing data</description>
+</property>
+
+<property> <name>db.ignore.external.links</name> <value>false</value> <description> If true, outlinks leading from a page to external hosts will be ignored. This is an effective way to limit the crawl to include only initially injected hosts, without creating complex URLFilters. </description> </property>
+
+
+<property>
+  <name>elastic.index</name>
+  <value>index</value>
+  <description>
+  The name of the elasticsearch index. Will normally be autocreated if it
+  doesn't exist.
+  </description>
+</property>
+
+<property>
+  <name>elastic.max.bulk.docs</name>
+  <value>500</value>
+  <description>
+  The number of docs in the batch that will trigger a flush to elasticsearch.
+  </description>
+</property>
+
+<property>
+  <name>elastic.max.bulk.size</name>
+  <value>5001001</value>
+  <description> 
+  The total length of all indexed text in a batch that will trigger a flush to
+  elasticsearch, by checking after every document for excess of this amount.
+  </description>
+</property>
+
+<property>
+  <name>elastic.cluster</name>
+  <value>gk-elasticsearch</value>
+  <description>The cluster name to discover. Either host and potr must be defined
+  or cluster.</description>
+</property>
+
+
+<property>
+  <name>gk.parser.log.location</name>
+  <value>/home/yann/gkrepository/gkplugins/nutchsrc/runtime/local/gk/</value>
+  
+</property>
+
+<property>
+  <name>fetcher.threads.fetch</name>
+  <value>10</value>
+  <description>The number of FetcherThreads the fetcher should use.
+  This is also determines the maximum number of requests that are
+  made at once (each FetcherThread handles one connection). The total
+  number of threads running in distributed mode will be the number of
+  fetcher threads * number of nodes as fetcher has one map task per node.
+  </description>
+</property>
+
+<property>
+  <name>fetcher.threads.per.queue</name>
+  <value>10</value>
+  <description>This number is the maximum number of threads that
+    should be allowed to access a queue at one time.</description>
+</property>
+<property>
+  <name>http.content.limit</name>
+  <value>-1</value>
+  <description>The length limit for downloaded content using the http
+  protocol, in bytes. If this value is nonnegative (>=0), content longer
+  than it will be truncated; otherwise, no truncation at all. Do not
+  confuse this setting with the file.content.limit setting.
+  </description>
+</property>
+
+<property>
+  <name>parser.timeout</name>
+  <value>-1</value>
+  <description>Timeout in seconds for the parsing of a document, otherwise treats it as an exception and 
+  moves on the the following documents. This parameter is applied to any Parser implementation. 
+  Set to -1 to deactivate, bearing in mind that this could cause
+  the parsing to crash because of a very long or corrupted document.
+  </description>
+</property>
+
+
+</configuration>

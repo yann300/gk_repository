@@ -1,0 +1,155 @@
+<?xml version="1.0" ?>
+
+<configuration>
+
+<property>
+
+<name>http.agent.name</name>
+
+<value>nutch-solr-integration</value>
+
+</property>
+
+<property>
+
+<name>generate.max.per.host</name>
+
+<value>100</value>
+
+</property>
+
+<property>
+
+<name>plugin.includes</name>
+
+<value>protocol-http|gk-urlfilter|urlfilter-regex|urlfilter-domain|gk-htmlparser|gk-parsefilter|gk-indexingfilter|index-(basic|anchor)|query-(basic|site|url)|response-(json|xml)|summary-basic|scoring-opic|urlnormalizer-(pass|regex|basic)</value>
+
+</property>
+
+<property>
+ <name>storage.data.store.class</name>
+ <value>org.apache.gora.hbase.store.HBaseStore</value>
+ <description>Default class for storing data</description>
+</property>
+
+<property>
+  <name>db.ignore.internal.links</name>
+  <value>false</value>
+  <description>If true, when adding new links to a page, links from
+  the same host are ignored.  This is an effective way to limit the
+  size of the link database, keeping only the highest quality
+  links.
+  </description>
+</property>
+
+
+<property> <name>db.ignore.external.links</name> <value>false</value> 
+<description> If true, outlinks leading from a page to external hosts will be ignored. 
+This is an effective way to limit the crawl to include only initially injected hosts, 
+without creating complex URLFilters. </description> </property>
+
+<property>
+  <name>http.content.limit</name>
+  <value>-1</value>
+  <description>The length limit for downloaded content using the file
+   protocol, in bytes. If this value is nonnegative (>=0), content longer
+   than it will be truncated; otherwise, no truncation at all. Do not
+   confuse this setting with the http.content.limit setting.
+  </description>
+</property>
+
+
+<property>
+  <name>elastic.index</name>
+  <value>index</value>
+  <description>
+  The name of the elasticsearch index. 
+Will normally be autocreated if it
+  doesn't exist.
+  </description>
+</property>
+
+<property>
+  <name>elastic.max.bulk.docs</name>
+  <value>500</value>
+  <description>
+  The number of docs in the batch that will trigger a flush to elasticsearch.
+  </description>
+</property>
+
+<property>
+  <name>elastic.max.bulk.size</name>
+  <value>5001001</value>
+  <description> 
+  The total length of all indexed text in a batch that will trigger a flush to
+  elasticsearch, by checking after every document for excess of this amount.
+  </description>
+</property>
+
+<property>
+  <name>elastic.cluster</name>
+  <value>gk-elasticsearch</value>
+  <description>The cluster name to discover. Either host and potr must be defined
+  or cluster.</description>
+</property>
+
+
+<property>
+  <name>gk.parser.log.location</name>
+  <value>/opt/nutch/apache-nutch-2.2.1/runtime/local/gk/</value>
+  <description>the folder where we want to store gk parse log
+  </description>
+</property>
+
+<property>
+  <name>gk.parser.metadata.description.file</name>
+  <value>gk.metadata.description.xml</value>
+  <description>the file used to parse article metadata</description>
+</property>
+
+<property>
+  <name>fetcher.threads.fetch</name>
+  <value>10</value>
+  <description>The number of FetcherThreads the fetcher should use.
+  This is also determines the maximum number of requests that are
+  made at once (each FetcherThread handles one connection). The total
+  number of threads running in distributed mode will be the number of
+  fetcher threads * number of nodes as fetcher has one map task per node.
+  </description>
+</property>
+
+<property>
+  <name>fetcher.threads.per.queue</name>
+  <value>10</value>
+  <description>This number is the maximum number of threads that
+    should be allowed to access a queue at one time.</description>
+</property>
+
+<property>
+  <name>db.max.outlinks.per.page</name>
+  <value>-1</value>
+  <description>The maximum number of outlinks that we'll process for a page.
+  If this value is nonnegative (>=0), at most db.max.outlinks.per.page outlinks
+  will be processed for a page; otherwise, all outlinks will be processed.
+  </description>
+</property>
+
+<property>
+  <name>db.max.anchor.length</name>
+  <value>-1</value>
+  <description>The maximum number of characters permitted in an anchor.
+  </description>
+</property>
+
+
+<property>
+  <name>indexer.max.title.length</name>
+  <value>-1</value>
+  <description>The maximum number of characters of a title that are indexed. A value of -1 disables this check.
+  Used by index-basic.
+  </description>
+</property>
+
+
+
+</configuration>

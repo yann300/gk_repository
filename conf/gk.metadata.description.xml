@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	Used to get site metadata
+-->
+<!--
+<IArticleMetaDataRetriever>
+	<Implementation name="post_date" >
+		<HtmlDateMetadata />
+		<UrlDateMetadata />
+		<AttributeDateMetadata />
+	</Implementation>
+	<Implementation name="title" >
+		<HtmlTitleMetadata />	
+		<AttributeTitleMetadata />	
+	</Implementation>
+</IArticleMetaDataRetriever>
+-->
+
+<Sites>
+	<Site url="nouvelobs.com"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="fr_FR" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>			
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.OpenGraphMetadatas" />				
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.HtmlDateMetadata" >
+					<Parameters>	
+						<TagName value="span" />	
+						<AttributeKey value="class" />
+						<AttributeValue value="date" />		
+						<RegExContent value="\d{2,4}/\d{2,4}/\d{2,4}" />
+						<Dateformat value="dd/MM/yyyy" />	
+					</Parameters>					
+				</Metadata>				
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>
+	<Site url="washingtonpost.com"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="fr_FR" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.UrlDateMetadata" >
+					<Parameters>
+						<RegExContent value="\d{2,4}/\d{2,4}/\d{2,4}" />	
+						<Dateformat value="yyyy/MM/dd" />	
+					</Parameters>	
+				</Metadata>				
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.OpenGraphMetadatas" />	
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>	
+	<Site url="lemonde.fr"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="fr_FR" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.HtmlDateMetadata" >
+					<Parameters>	
+						<TagName value="time" />	
+						<AttributeKey value="itemprop" />
+						<AttributeValue value="datePublished" />		
+						<RegExContent value="\d{2,4}.\d{2,4}.\d{2,4}" />
+						<Dateformat value="dd.MM.yyyy" />	
+					</Parameters>					
+				</Metadata>		
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.OpenGraphMetadatas" />	
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>	
+	<Site url="spiegel.de"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="de_DE" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.AttributeDateMetadata" >
+					<Parameters>	
+						<TagName value="time" />	
+						<AttributeKey value="class" />
+						<AttributeValue value="timeformat" />		
+						<RegExContent value="\d{2,4}-\d{2,4}-\d{2,4}" />
+						<Dateformat value="yyyy-MM-dd" />	
+						<AttributeContent value="datetime" />
+					</Parameters>					
+				</Metadata>		
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.OpenGraphMetadatas" />	
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>
+	<Site url="elpais.com"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="es_ES" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.UrlDateMetadata" >
+					<Parameters>
+						<RegExContent value="\d{2,4}/\d{2,4}/\d{2,4}" />	
+						<Dateformat value="yyyy/MM/dd" />	
+					</Parameters>	
+				</Metadata>	
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.OpenGraphMetadatas" />	
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>
+	<Site url="nytimes.com"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="en_US" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.AttributeDateMetadata" >
+					<Parameters>	
+						<TagName value="meta" />	
+						<AttributeKey value="itemprop" />
+						<AttributeValue value="datePublished" />		
+						<RegExContent value="\d{2,4}-\d{2,4}-\d{2,4}" />
+						<Dateformat value="yyyy-MM-dd" />	
+						<AttributeContent value="content" />
+					</Parameters>					
+				</Metadata>		
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.OpenGraphMetadatas" />	
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>
+	<Site url="courrierinternational.com"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="fr_FR" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.UrlDateMetadata" >
+					<Parameters>
+						<RegExContent value="\d{2,4}/\d{2,4}/\d{2,4}" />	
+						<Dateformat value="yyyy/MM/dd" />	
+					</Parameters>	
+				</Metadata>	
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.OpenGraphMetadatas" />	
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>		
+	<Site url="xinhuanet.com"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="fr_FR" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.AttributeDateMetadata" >
+					<Parameters>	
+						<TagName value="meta" />	
+						<AttributeKey value="name" />
+						<AttributeValue value="pubdate" />		
+						<RegExContent value="\d{2,4}-\d{2,4}-\d{2,4}" />
+						<Dateformat value="yyyy-MM-dd" />	
+						<AttributeContent value="content" />
+					</Parameters>					
+				</Metadata>		
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.HtmlTitleMetadata" >					
+					<Parameters>					
+						<TagName value="h1" />	
+						<AttributeKey value="" />
+						<AttributeValue value="" />	
+						<RegExContent value=".*" />							
+					</Parameters>
+				</Metadata>
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>
+	
+	<Site url="afrique-asie.fr"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="fr_FR" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.HtmlDateMetadata" >
+					<Parameters>	
+						<TagName value="dd" />	
+						<AttributeKey value="class" />
+						<AttributeValue value="create" />		
+						<RegExContent value="\d{2,4}/\d{2,4}/\d{2,4}" />
+						<Dateformat value="dd/MM/yyyy" />	
+					</Parameters>					
+				</Metadata>		
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.HtmlTitleMetadata" >					
+					<Parameters>					
+						<TagName value="title" />	
+						<AttributeKey value="" />
+						<AttributeValue value="" />	
+						<RegExContent value=".*" />							
+					</Parameters>
+				</Metadata>
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>
+	<Site url="jeuneafrique.com"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="fr_FR" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.HtmlDateMetadata" >
+					<Parameters>	
+						<TagName value="span" />	
+						<AttributeKey value="class" />
+						<AttributeValue value="date" />		
+						<RegExContent value="\d{2,4}/\d{2,4}/\d{2,4}" />
+						<Dateformat value="dd/MM/yyyy" />	
+					</Parameters>					
+				</Metadata>		
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.OpenGraphMetadatas" />	
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>
+	
+	<Site url="elwatan.com"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="fr_FR" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.HtmlDateMetadata" >
+					<Parameters>	
+						<TagName value="span" />	
+						<AttributeKey value="class" />
+						<AttributeValue value="date-publi" />		
+						<RegExContent value="\d{2,4}.\d{2,4}.\d{2,4}" />
+						<Dateformat value="dd.MM.yy" />	
+					</Parameters>					
+				</Metadata>		
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.AttributeTitleMetadata" >					
+					<Parameters>					
+						<TagName value="meta" />	
+						<AttributeKey value="name" />
+						<AttributeValue value="description" />		
+						<AttributeContent value="content" />	
+						<RegExContent value=".*" />							
+					</Parameters>
+				</Metadata>
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>
+	
+	<Site url="lorientlejour.com"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="fr_FR" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.AttributeDateMetadata" >
+					<Parameters>	
+						<TagName value="meta" />	
+						<AttributeKey value="property" />
+						<AttributeValue value="article:published_time" />		
+						<RegExContent value="\d{2,4}-\d{2,4}-\d{2,4}" />
+						<Dateformat value="yyyy-MM-dd" />	
+						<AttributeContent value="content" />
+					</Parameters>					
+				</Metadata>			
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.OpenGraphMetadatas" />	
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>
+	
+	<Site url="bellaciao.org"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="fr_FR" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.AttributeDateMetadata" >
+					<Parameters>	<!-- TODO : add date handler -->
+						<TagName value="meta" />	
+						<AttributeKey value="property" />
+						<AttributeValue value="article:published_time" />		
+						<RegExContent value="\d{2,4}-\d{2,4}-\d{2,4}" />
+						<Dateformat value="yyyy-MM-dd" />	
+						<AttributeContent value="content" />
+					</Parameters>					
+				</Metadata>			
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.OpenGraphMetadatas" />	
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>
+	
+	<Site url="rfi.fr"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="fr_FR" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.AttributeDateMetadata" >
+					<Parameters>	<!-- TODO : add date handler -->
+						<TagName value="meta" />	
+						<AttributeKey value="itemprop" />
+						<AttributeValue value="datePublished" />		
+						<RegExContent value="\d{2,4}-\d{2,4}-\d{2,4}" />
+						<Dateformat value="yyyy-MM-dd" />	
+						<AttributeContent value="content" />
+					</Parameters>					
+				</Metadata>			
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.OpenGraphMetadatas" />	
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>
+	
+	<Site url="survie.org"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="fr_FR" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.AttributeDateMetadata" >
+					<Parameters>	<!-- TODO : add date handler -->
+						<TagName value="meta" />	
+						<AttributeKey value="itemprop" />
+						<AttributeValue value="datePublished" />		
+						<RegExContent value="\d{2,4}-\d{2,4}-\d{2,4}" />
+						<Dateformat value="yyyy-MM-dd" />	
+						<AttributeContent value="content" />
+					</Parameters>					
+				</Metadata>			
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.OpenGraphMetadatas" />	
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>
+	
+	<Site url="lagazettedeberlin.com"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="fr_FR" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.HtmlDateMetadata" >
+					<Parameters>	
+						<TagName value="li" />	
+						<AttributeKey value="class" />
+						<AttributeValue value="date" />		
+						<RegExContent value="\d{2,4}/\d{2,4}/\d{2,4}" />
+						<Dateformat value="dd/MM/yyyy" />	
+					</Parameters>					
+				</Metadata>			
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.HtmlTitleMetadata" >					
+					<Parameters>					
+						<TagName value="title" />	
+						<AttributeKey value="" />
+						<AttributeValue value="" />	
+						<RegExContent value=".*" />							
+					</Parameters>
+				</Metadata>
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>
+	<Site url="lesoir.be"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="fr_FR" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.UrlDateMetadata" >
+					<Parameters>
+						<RegExContent value="\d{2,4}-\d{2,4}-\d{2,4}" />	
+						<Dateformat value="yyyy-MM-dd" />	
+					</Parameters>	
+				</Metadata>			
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.OpenGraphMetadatas" />	
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>
+	<Site url="lalibre.be"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="fr_FR" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.AttributeDateMetadata" >
+					<Parameters>	
+						<TagName value="time" />	
+						<AttributeKey value="" />
+						<AttributeValue value="" />		
+						<RegExContent value="\d{2,4}-\d{2,4}-\d{2,4}" />
+						<Dateformat value="yyyy-MM-dd" />	
+						<AttributeContent value="datetime" />
+					</Parameters>					
+				</Metadata>						
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.OpenGraphMetadatas" />	
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>
+</Sites>
