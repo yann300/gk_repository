@@ -3,7 +3,6 @@ package com.gk.apache.nutch.parse.html.HtmlParserResult;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.net.URI;
 import java.net.URL;
 
 import org.apache.hadoop.conf.Configuration;
@@ -17,13 +16,10 @@ public class HtmlParserResult {
 	public static final String PARSER_RESULT_FILENAME = "parseResult.log"; //DefaultName
 	public String fileName = "";
 	
-	private Configuration conf;
 	private String location;	
 	private String relativePath;
 	
 	public HtmlParserResult(Configuration conf, URL url) {
-		// TODO Auto-generated constructor stub
-		this.conf = conf;
 		if (conf != null){
 			this.location = conf.get(PARSER_RESULT_LOCATION);
 		}
@@ -35,8 +31,6 @@ public class HtmlParserResult {
 	}
 	
 	public HtmlParserResult(Configuration conf, String relativefilePath) {
-		// TODO Auto-generated constructor stub
-		this.conf = conf;
 		if (conf != null){
 			this.location = conf.get(PARSER_RESULT_LOCATION);
 		}

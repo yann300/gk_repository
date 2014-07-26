@@ -12,8 +12,6 @@ import org.w3c.dom.NodeList;
 
 public class HtmlParseInfo {
 	private static final int PARAGRAPH_WORD_COUNT = 10; 
-	private static final int CONTENT_PARAGRAPH_COUNT = 3;
-	
 	public ArrayList<Node> TimeTags;
 	public ArrayList<Node> H1Tags;
 	public ArrayList<Node> H2Tags;

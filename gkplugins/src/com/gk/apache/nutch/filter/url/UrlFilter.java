@@ -1,7 +1,5 @@
 package com.gk.apache.nutch.filter.url;
 
-import org.apache.nutch.plugin.Extension;
-
 import org.apache.hadoop.conf.Configuration;
 import org.apache.nutch.net.URLFilter;
 import org.slf4j.Logger;
@@ -30,8 +28,8 @@ public class UrlFilter implements URLFilter {
 	}
 	  
 	public static void main(String[] args) throws Exception {
-	    String url = "http://rue89.nouvelobs.com";
+	    /*String url = "http://rue89.nouvelobs.com";
 	    UrlFilter filter = new UrlFilter();
-	    String result = filter.filter(url);
+	    String result = filter.filter(url);*/
 	}
 }

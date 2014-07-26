@@ -3,11 +3,9 @@ package com.gk.apache.nutch.parse.html.ContentFinder;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import org.apache.commons.lang.time.StopWatch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 
 public class DomUtils {
 	public static final Logger LOG = LoggerFactory.getLogger(DomUtils.class);

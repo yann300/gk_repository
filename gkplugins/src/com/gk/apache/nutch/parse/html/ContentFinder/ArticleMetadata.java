@@ -1,7 +1,6 @@
 package com.gk.apache.nutch.parse.html.ContentFinder;
 
 import java.net.URL;
-import java.util.Date;
 import java.util.Hashtable;
 
 public class ArticleMetadata {

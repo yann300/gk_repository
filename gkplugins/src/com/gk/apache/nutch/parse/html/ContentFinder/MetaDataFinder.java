@@ -2,7 +2,7 @@ package com.gk.apache.nutch.parse.html.ContentFinder;
 
 import java.io.IOException;
 
-import com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.ContentMetadataExtractor;
+
 import com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.IArticleMetaDataRetriever;
 import com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.INodeMetadataRetriever;
 import com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.IUrlMetadataRetriever;
@@ -11,16 +11,12 @@ import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.hadoop.conf.Configuration;
-import org.elasticsearch.common.inject.ImplementedBy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.DOMException;

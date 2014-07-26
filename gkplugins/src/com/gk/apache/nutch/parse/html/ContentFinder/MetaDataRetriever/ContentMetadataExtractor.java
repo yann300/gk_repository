@@ -2,7 +2,6 @@ package com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever;
 
 import org.w3c.dom.Node;
 
-import com.gk.apache.nutch.parse.html.MetaContentManager;
 import com.gk.apache.nutch.parse.html.ContentFinder.ArticleMetadata;
 
 public abstract class ContentMetadataExtractor implements IArticleMetaDataRetriever, INodeMetadataRetriever {

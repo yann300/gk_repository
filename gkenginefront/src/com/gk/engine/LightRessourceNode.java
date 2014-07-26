@@ -1,8 +1,6 @@
 package com.gk.engine;
 
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSeeAlso;
-
 import org.codehaus.jackson.annotate.JsonProperty;
 
 @XmlRootElement

@@ -3,26 +3,12 @@ package com.gk.apache.nutch.parse.html;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 import org.apache.avro.util.Utf8;
 import org.apache.nutch.indexer.NutchDocument;
 import org.apache.nutch.storage.WebPage;
-import org.joda.time.DateTime;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.Document;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-
-import com.gk.apache.nutch.indexing.GKIndexingFilter;
-import com.gk.apache.nutch.parse.GKParseFilter;
 import com.gk.apache.nutch.parse.html.ContentFinder.ArticleMetadata;
-import com.gk.apache.nutch.parse.html.ContentFinder.DateNormalizer;
 import com.gk.apache.nutch.parse.html.HtmlParserResult.HtmlParserResult;
 
 public class MetaContentManager {

@@ -1,9 +1,6 @@
 package com.gk.apache.nutch.parse.html.HtmlParserResult;
 
-import java.net.URI;
 import java.net.URL;
-import java.util.Hashtable;
-
 import com.gk.apache.nutch.parse.html.ContentFinder.ArticleMetadata;
 import com.gk.apache.nutch.parse.html.ContentFinder.HtmlParseInfo;
 

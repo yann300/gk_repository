@@ -1,7 +1,5 @@
 package com.gk.engine;
 
-import java.net.URL;
-
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.codehaus.jackson.annotate.JsonProperty;

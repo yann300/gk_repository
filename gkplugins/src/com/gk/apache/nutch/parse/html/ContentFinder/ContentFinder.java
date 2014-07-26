@@ -1,32 +1,14 @@
 package com.gk.apache.nutch.parse.html.ContentFinder;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.Reader;
 import java.net.URL;
-import java.util.Hashtable;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.stream.StreamSource;
-
-import org.apache.commons.lang.time.StopWatch;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.nutch.util.DomUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.w3c.dom.Document;
 import org.w3c.dom.DocumentFragment;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
-
 import com.gk.apache.nutch.parse.html.DOMContentUtils;
 import com.gk.apache.nutch.parse.html.MetaContentManager;
-import com.gk.apache.nutch.parse.html.HtmlParserResult.HtmlParserInfo;
 import com.gk.apache.nutch.parse.html.HtmlParserResult.HtmlParserResult;
 
 public class ContentFinder {
@@ -37,10 +19,6 @@ public class ContentFinder {
 	private DOMContentUtils utils;
 	private URL url;
 	public static final Logger LOG = LoggerFactory.getLogger(ContentFinder.class);
-	
-	private final Pattern date = Pattern.compile("/\\d{2,4}/\\d{2,4}/\\d{2,4}/");
-	private MetaDataFinder metadata_finder;
-	
 	
 	public ContentFinder(DocumentFragment doc, Configuration conf, URL url)
 	{
@@ -96,8 +74,7 @@ public class ContentFinder {
 		if (this.parseInfo.ParagraphParentNodes.size() == 0) {
 			return "NO CONTENT"; //not an article !!
 		}
-		//HtmlParserResult parserResult = HtmlParserResult.get(this.conf, this.url);
-		HtmlParserResult parserResult = new HtmlParserResult(this.conf, this.url);
+		new HtmlParserResult(this.conf, this.url);
 		
 		Node node = this.parseInfo.getParentWithMostWord(); //could be part of an article.
 		Node copy = node.cloneNode(true);
@@ -139,23 +116,5 @@ public class ContentFinder {
 			}
 
 		}	
-	}
-
-	private Node tryGetWithCommonAncestorWithH1(Node node) {
-		
-		Node h1Node = null;
-		if (this.parseInfo.H1Tags.size() == 1){
-			h1Node = this.parseInfo.H1Tags.get(0);
-		}
-		if (this.parseInfo.H1Tags.size() > 1){
-			h1Node = DomUtils.getClosestNode("h1", node);
-		}
-		if (h1Node != null){
-			Node commonAncestor = DomUtils.getCommonAncestor(
-					node,
-					h1Node);
-			return commonAncestor;
-		}
-		return null;
 	}
 }

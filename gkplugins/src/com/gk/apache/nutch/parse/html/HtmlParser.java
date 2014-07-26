@@ -15,34 +15,30 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.jar.JarEntry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.apache.avro.util.Utf8;
-import org.mortbay.log.Log;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.html.dom.HTMLDocumentImpl;
 import org.apache.nutch.metadata.Metadata;
 import org.apache.nutch.metadata.Nutch;
 import org.apache.nutch.parse.HTMLMetaTags;
-import org.apache.nutch.parse.ParseFilters;
 import org.apache.nutch.parse.Outlink;
 import org.apache.nutch.parse.Parse;
+import org.apache.nutch.parse.ParseFilters;
 import org.apache.nutch.parse.ParseStatusCodes;
 import org.apache.nutch.parse.ParseStatusUtils;
 import org.apache.nutch.parse.Parser;
 import org.apache.nutch.storage.ParseStatus;
 import org.apache.nutch.storage.WebPage;
-import org.apache.nutch.storage.WebPage.Field;
 import org.apache.nutch.util.Bytes;
 import org.apache.nutch.util.EncodingDetector;
 import org.apache.nutch.util.NutchConfiguration;
 import org.apache.nutch.util.TableUtil;
 import org.cyberneko.html.parsers.DOMFragmentParser;
-import org.cyberneko.html.parsers.DOMParser;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.DocumentFragment;
 import org.xml.sax.InputSource;
@@ -72,8 +68,6 @@ public class HtmlParser implements Parser {
   static {
     FIELDS.add(WebPage.Field.BASE_URL);
   }
-
-  private String parserImpl;
 
   /**
    * Given a <code>ByteBuffer</code> representing an html file of an
@@ -204,7 +198,7 @@ public Parse getParse(String url, WebPage page) {
     try{
 	    // check meta directives	  
 	    if (!metaTags.getNoIndex()) { // okay to index   
-	      StringBuilder sb = new StringBuilder();
+	      new StringBuilder();
 	      if (LOG.isTraceEnabled()) { LOG.trace("Getting text..."); }
 	      ContentFinder finder = new ContentFinder(root, this.conf, base);
 	      finder.init();
@@ -256,12 +250,7 @@ public Parse getParse(String url, WebPage page) {
     return parse;
   }
 
-private void logOutlinks(Outlink[] links){
-	for (int i = 0; i < links.length; i++) {
-		Outlink outlink = links[i];
-		Log.info(outlink.getToUrl());
-	}
-}
+
 
 /*
 private DocumentFragment parse(InputSource input) throws Exception {
@@ -328,20 +317,6 @@ private DocumentFragment parse(InputSource input) throws Exception {
 	  return parseNeko(input);	
   }
 
-  private DocumentFragment parseTagSoup(InputSource input) throws Exception {
-	
-    HTMLDocumentImpl doc = new HTMLDocumentImpl();
-    DocumentFragment frag = doc.createDocumentFragment();
-   /* DOMBuilder builder = new DOMBuilder(doc, frag);
-    org.ccil.cowan.tagsoup.Parser reader = new org.ccil.cowan.tagsoup.Parser();
-    reader.setContentHandler(builder);
-    reader.setFeature(org.ccil.cowan.tagsoup.Parser.ignoreBogonsFeature, true);
-    reader.setFeature(org.ccil.cowan.tagsoup.Parser.bogonsEmptyFeature, false);
-    reader.setProperty("http://xml.org/sax/properties/lexical-handler", builder);
-    reader.parse(input);*/
-    return frag;
-  }
-
   private DocumentFragment parseNeko(InputSource input) throws Exception {
 	  
 	  DOMFragmentParser parser = new DOMFragmentParser();
@@ -357,7 +332,7 @@ public void setConf(Configuration conf) {
     if (getConf() != null)
     {
     	this.htmlParseFilters = new ParseFilters(getConf());
-    	this.parserImpl = getConf().get("parser.html.impl", "neko");
+    	getConf().get("parser.html.impl", "neko");
     	this.defaultCharEncoding = getConf().get(
     	        "parser.character.encoding.default", "windows-1252");
     	this.cachingPolicy = getConf().get("parser.caching.forbidden.policy",
@@ -385,8 +360,9 @@ public Configuration getConf() {
     String url = "http://rue89.nouvelobs.com";
     File file = new File(name);
     byte[] bytes = new byte[(int)file.length()];
-    DataInputStream in = new DataInputStream(new FileInputStream(file));
-    in.readFully(bytes);
+    DataInputStream _in = new DataInputStream(new FileInputStream(file));
+    _in.readFully(bytes);
+    _in.close();
     Configuration conf = NutchConfiguration.create();
     HtmlParser parser = new HtmlParser();
     //parser.setConf(conf);

@@ -9,21 +9,18 @@ import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.HColumnDescriptor;
 import org.apache.hadoop.hbase.HTableDescriptor;
 import org.apache.hadoop.hbase.KeyValue;
-import org.apache.hadoop.hbase.client.Get;
 import org.apache.hadoop.hbase.client.HBaseAdmin;
 import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.client.ResultScanner;
 import org.apache.hadoop.hbase.client.Scan;
-import org.apache.hadoop.hbase.filter.Filter;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 
 import com.gk.engine.LightRessourceNode;
 import com.gk.engine.RessourceNode;
-import com.kenai.jffi.Array;
 
 
 public class RessourceNodeManager {
@@ -136,7 +133,7 @@ public class RessourceNodeManager {
 		//Hashtable<String, LightRessourceNode[]> result = man.getRessourceNodesFromUrl(new String[] { "http://rue89.com", "http://urltest3" });
 		//result.get("http://rue89.com");
 		
-		RessourceNode node = man.getRessourceNode("berlin");
+		//RessourceNode node = man.getRessourceNode("berlin");
 	}
 
 	

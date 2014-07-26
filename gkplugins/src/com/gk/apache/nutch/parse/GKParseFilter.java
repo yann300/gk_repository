@@ -1,25 +1,16 @@
 package com.gk.apache.nutch.parse;
 
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.nio.ByteBuffer;
-import java.text.ParseException;
 import java.util.Collection;
 
-import org.apache.avro.util.Utf8;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.nutch.parse.HTMLMetaTags;
 import org.apache.nutch.parse.Parse;
 import org.apache.nutch.parse.ParseFilter;
-import org.apache.nutch.storage.ParseStatus;
 import org.apache.nutch.storage.WebPage;
 import org.apache.nutch.storage.WebPage.Field;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.DocumentFragment;
-
-import com.gk.apache.nutch.indexing.GKIndexingFilter;
-import com.gk.apache.nutch.parse.html.MetaContentManager;
 
 public class GKParseFilter implements ParseFilter {
 

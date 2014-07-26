@@ -3,7 +3,6 @@ package com.gk.apache.nutch.indexer.elastic;
 import static org.elasticsearch.node.NodeBuilder.nodeBuilder;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
