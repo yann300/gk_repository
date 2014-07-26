@@ -1,0 +1,44 @@
+Nutch command: 
+sudo ./bin/nutch inject urls
+sudo ./bin/nutch generate -topN 10000
+sudo ./bin/nutch fetch -all
+sudo ./bin/nutch parse -all
+sudo ./bin/nutch updatedb
+sudo ./bin/nutch elasticindex gk-elasticsearch -all
+
+Crawl command: 
+sudo ./bin/crawlWithElastic urls 1 http://localhost:9200 10
+
+Use : hbase-0.90.5.tar.gz
+
+ELASTIC SEARCH: 
+Make Search: 
+http://localhost:9200/_search?q=rue89
+Index Search
+curl -XHEAD 'http://localhost:9200/twitter'
+Delete Index
+curl -XDELETE 'http://localhost:9200/twitter/'
+
+
+NUTCH
+Delete Hbase : 
+disable 'webpage'
+drop 'webpage' 
+
+
+---------------
+Test Nutch Plugin:
+sudo ./bin/nutch gk-htmlparser com.gk.apache.nutch.parse.html.HtmlParser
+
+______________________________________________________________
+
+ParseResult log in gk folder: 
+add new conf :
+<property>
+  <name>gk.parser.log.location</name>
+  <value>/opt/nutch/apache-nutch-2.2.1/runtime/local/gk/htmlParser</value>
+  <description>location where htmlparser result are loggued
+  </description>
+</property>
+
+
