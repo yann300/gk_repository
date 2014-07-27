@@ -83,7 +83,7 @@ curl -XPUT 'http://localhost:9200/index/' -d '
 		"d"
 	  ]
 	},
-	"stopwords_fr": {
+	"stopwrds_fr": {
 	  "type": "stop",
 	  "stopwords": ["_french_"],
 	  "ignore_case": true

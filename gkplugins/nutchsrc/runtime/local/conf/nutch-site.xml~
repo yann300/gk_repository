@@ -79,7 +79,7 @@
 
 <property>
   <name>gk.parser.log.location</name>
-  <value>/home/yann/gk_nutch/gk_repository/gkplugins/nutchsrc/runtime/local/gk/</value>
+  <value>/home/yann/gkrepository/gkplugins/nutchsrc/runtime/local/gk/</value>
   
 </property>
 

@@ -65,17 +65,17 @@ public class MetaContentManager {
 			ByteBuffer value = webPage.getMetadata().get(key);
 			String value_metadata = new String(value.array(), Charset.forName("UTF-8"));
 			String key_metadata = new String(key.getBytes(), Charset.forName("UTF-8"));	
-			if (key_metadata.equals(MetaContentManager.DATETIME_FIELD))
-			{
+			//if (key_metadata.equals(MetaContentManager.DATETIME_FIELD))
+			//{
 				doc.add(key_metadata, value_metadata);
 				if (logWriter != null){
 					logWriter.push(url, key_metadata, value_metadata);
 				}
-			}
+			//}
 		}
 	}
 	
-	private void setMetadata(WebPage webPage, String key, String value){
+	public void setMetadata(WebPage webPage, String key, String value){
 		webPage.putToMetadata(new Utf8(key), ByteBuffer.wrap(value.getBytes())); 	
 	}
 }

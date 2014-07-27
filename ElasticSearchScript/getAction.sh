@@ -1,1 +1,9 @@
-curl -XGET 'http://localhost:9200/index/doc/de.spiegel.www:http%2fauto%2faktuell%2fsnack-test-selbstversuch-essen-am-steuer-im-opel-astra-kombi-a-980511.html'
+
+curl -XGET 'http://localhost:9200/index/doc/com.nouvelobs.rue89:http%2frue89-sport%2f2014%2f07%2f26%2fjean-christophe-peraud-lhomme-devait-etre-253912?fields=content_fr,content_en'
+
+
+
+
+
+
+

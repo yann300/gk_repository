@@ -44,6 +44,7 @@ import org.w3c.dom.DocumentFragment;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+
 import com.gk.apache.nutch.parse.html.ContentFinder.ContentFinder;
 
 
@@ -212,6 +213,9 @@ public Parse getParse(String url, WebPage page) {
 	    	  //if post date != null, we can add all other article metadatas (post date will be included):
 	      meta_man.setMetadatas(page, finder.getMetadatas());
 	      //}
+	      
+	      this.ManagelangContent("content", text, meta_man, page);
+	      this.ManagelangContent("title", title, meta_man, page);
 	    }
     }
     catch (Exception ex)
@@ -249,8 +253,28 @@ public Parse getParse(String url, WebPage page) {
     
     return parse;
   }
-
-
+	private String[] lang_supported = new String[] { "en","fr", "de" };
+	private void ManagelangContent(String key, String Content, MetaContentManager contentManager, WebPage page) {
+		
+		org.xbib.elasticsearch.common.langdetect.Detector detector = 
+				new org.xbib.elasticsearch.common.langdetect.Detector();
+		try {
+			detector.loadDefaultProfiles();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String lang = detector.detect(Content);
+		for (int i = 0; i < lang_supported.length; i++) {
+			String langcurrent = lang_supported[i];
+			if (langcurrent.equals(lang)){
+				contentManager.setMetadata(page, key + "_" + langcurrent, Content);
+			}
+			else{
+				contentManager.setMetadata(page, key + "_" + langcurrent, "");
+			}
+		}
+	}
 
 /*
 private DocumentFragment parse(InputSource input) throws Exception {

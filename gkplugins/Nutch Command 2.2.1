@@ -18,7 +18,7 @@ Index Search
 curl -XHEAD 'http://localhost:9200/twitter'
 Delete Index
 curl -XDELETE 'http://localhost:9200/twitter/'
-
+curl -XPOST 'http://localhost:9200/_cluster/nodes/_local/_shutdown'
 
 NUTCH
 Delete Hbase : 

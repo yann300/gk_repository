@@ -3,7 +3,7 @@ package com.gk.engine.back;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Hashtable;
-
+/*
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.HColumnDescriptor;
@@ -15,7 +15,7 @@ import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.client.ResultScanner;
 import org.apache.hadoop.hbase.client.Scan;
-import org.apache.hadoop.hbase.util.Bytes;
+import org.apache.hadoop.hbase.util.Bytes;*/
 import org.codehaus.jettison.json.JSONArray;
 import org.codehaus.jettison.json.JSONException;
 
@@ -33,15 +33,15 @@ public class RessourceNodeManager {
 	private final String START_KEY = "a";
 	
 	public void createTable() throws IOException {
-		Configuration conf = HBaseConfiguration.create();
+		/*Configuration conf = HBaseConfiguration.create();
 		HBaseAdmin admin = new HBaseAdmin(conf);
 		HTableDescriptor tableDescriptor = new HTableDescriptor(TABLENAME);
 		tableDescriptor.addFamily(new HColumnDescriptor(COLUMNINFO));
-		admin.createTable(tableDescriptor);
+		admin.createTable(tableDescriptor);*/
 	}
 	
 	public void addNode(String nodeName) throws IOException {
-		Configuration conf = HBaseConfiguration.create();		 
+		/*Configuration conf = HBaseConfiguration.create();		 
 		HTable table = new HTable(conf, TABLENAME);		
 		Put put = new Put(Bytes.toBytes(nodeName + "_" + START_KEY));	
 		Put putStop = new Put(Bytes.toBytes(nodeName + "_" + STOP_KEY));	
@@ -50,11 +50,11 @@ public class RessourceNodeManager {
 		table.put(put);
 		table.put(putStop);		
 		table.flushCommits();
-		table.close();
+		table.close();*/
 	}
 	
 	public void addRessource(String ressourceNodeName, String url) throws IOException{
-		Configuration conf = HBaseConfiguration.create();		 
+		/*Configuration conf = HBaseConfiguration.create();		 
 		HTable table = new HTable(conf, TABLENAME);		
 		Put put = new Put(Bytes.toBytes(ressourceNodeName + "_" + url));	
 		Put put2 = new Put(Bytes.toBytes(url + "_" + ressourceNodeName));		
@@ -67,12 +67,12 @@ public class RessourceNodeManager {
 		table.put(put2);
 		
 		table.flushCommits();
-		table.close();
+		table.close();*/
 	}
 	
 	public Hashtable<String, LightRessourceNode[]> getRessourceNodesFromUrl(JSONArray urls) throws IOException, JSONException{
 		
-		Hashtable<String, LightRessourceNode[]> urls_themes = new Hashtable<String, LightRessourceNode[]>();
+		/*Hashtable<String, LightRessourceNode[]> urls_themes = new Hashtable<String, LightRessourceNode[]>();
 		if (urls == null){
 			return urls_themes;	
 		}
@@ -96,11 +96,12 @@ public class RessourceNodeManager {
 			}
 			urls_themes.put(url, (LightRessourceNode[])ressourceNodes.toArray(new LightRessourceNode[0]));
 		}
-		return urls_themes;
+		return urls_themes;*/
+		return null;
 	}
 	
 	public RessourceNode getRessourceNode(String theme) throws IOException{
-		ArrayList<String> urls = new ArrayList<String>();
+		/*ArrayList<String> urls = new ArrayList<String>();
 		Configuration conf = HBaseConfiguration.create();		 
 		HTable table = new HTable(conf, TABLENAME);		
 		Scan scan = new Scan(Bytes.toBytes(theme + "_"));
@@ -117,11 +118,12 @@ public class RessourceNodeManager {
 			return new RessourceNode(theme, (String[])urls.toArray(new String[0]));
 		}else{
 			return null;
-		}
+		}*/
+		return null;
 	}
 	
 	public static void main(String[] args) throws Exception {
-		RessourceNodeManager man = new RessourceNodeManager();
+		/*RessourceNodeManager man = new RessourceNodeManager();
 		//man.createTable();
 		man.addRessource("france", "http://www.lemonde.fr/sport/article/2014/06/16/tom-boonen-renonce-au-tour-de-france_4438951_3242.html");
 		
@@ -133,7 +135,7 @@ public class RessourceNodeManager {
 		//Hashtable<String, LightRessourceNode[]> result = man.getRessourceNodesFromUrl(new String[] { "http://rue89.com", "http://urltest3" });
 		//result.get("http://rue89.com");
 		
-		//RessourceNode node = man.getRessourceNode("berlin");
+		//RessourceNode node = man.getRessourceNode("berlin");*/
 	}
 
 	

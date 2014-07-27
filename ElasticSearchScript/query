@@ -10,4 +10,4 @@
 {                                                                      
 "script_score": { "script": "_score * doc[\"customRelevance\"].value" }                                                                               
 }                                                                  
-], "boost_mode": "replace", "query" : { "match" : { "_all" : { "query" : "test", "operator" : "and" } }  } }   }, "highlight" : { "pre_tags" : ["<b>"], "post_tags" : ["</b>"], "fields" : { "content" : {} } }  } 
+], "boost_mode": "replace", "query" : { "match" : { "_all" : { "query" : "tour", "operator" : "and" } }  } }   }, "highlight" : { "pre_tags" : ["<b>"], "post_tags" : ["</b>"], "fields" : { "content" : {} } }  } 
