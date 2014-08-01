@@ -41,9 +41,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.DOMException;
 import org.w3c.dom.DocumentFragment;
+import org.xbib.elasticsearch.common.langdetect.Detector;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
-
 
 import com.gk.apache.nutch.parse.html.ContentFinder.ContentFinder;
 
@@ -254,17 +254,21 @@ public Parse getParse(String url, WebPage page) {
     return parse;
   }
 	private String[] lang_supported = new String[] { "en","fr", "de" };
+
+	private static Detector detector_lang = null;
 	private void ManagelangContent(String key, String Content, MetaContentManager contentManager, WebPage page) {
 		
-		org.xbib.elasticsearch.common.langdetect.Detector detector = 
-				new org.xbib.elasticsearch.common.langdetect.Detector();
-		try {
-			detector.loadDefaultProfiles();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if (detector_lang == null){
+			detector_lang = new org.xbib.elasticsearch.common.langdetect.Detector();
+			try {
+				detector_lang.loadDefaultProfiles();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-		String lang = detector.detect(Content);
+		
+		String lang = detector_lang.detect(Content);
 		for (int i = 0; i < lang_supported.length; i++) {
 			String langcurrent = lang_supported[i];
 			if (langcurrent.equals(lang)){
@@ -274,6 +278,7 @@ public Parse getParse(String url, WebPage page) {
 				contentManager.setMetadata(page, key + "_" + langcurrent, "");
 			}
 		}
+		
 	}
 
 /*

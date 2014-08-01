@@ -67,7 +67,9 @@ public class MetaContentManager {
 			String key_metadata = new String(key.getBytes(), Charset.forName("UTF-8"));	
 			//if (key_metadata.equals(MetaContentManager.DATETIME_FIELD))
 			//{
-				doc.add(key_metadata, value_metadata);
+				if (doc.getFieldValue(key_metadata) == null){
+					doc.add(key_metadata, value_metadata);
+				}
 				if (logWriter != null){
 					logWriter.push(url, key_metadata, value_metadata);
 				}

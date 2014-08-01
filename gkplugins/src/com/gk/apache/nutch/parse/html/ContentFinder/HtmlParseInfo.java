@@ -91,8 +91,8 @@ public class HtmlParseInfo {
 			}*/
 			this.metadata_finder.tryResolveMetaData(node);
 			if (!node.hasChildNodes()){
-				String text = node.getTextContent().replace("\n", "");
-				Integer textLength = text.replace("\t"," ").replace("\n", " ").split(" ").length;
+				String text = node.getTextContent();
+				Integer textLength = text.replace("\t"," ").replace("\n", " ").replaceAll(" +", " ").split(" ").length;
 				
 				if (textLength >= PARAGRAPH_WORD_COUNT)
 				{

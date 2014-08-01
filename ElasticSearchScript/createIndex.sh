@@ -1,4 +1,4 @@
-curl -XPUT 'http://localhost:9200/index/' -d '
+curl -XPUT 'http://localhost:9200/gkindex/' -d '
 { 
 "analysis": {
   "analyzer": {
