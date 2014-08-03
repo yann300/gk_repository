@@ -7,5 +7,3 @@ curl -XGET 'http://localhost:9200/index/doc/fr.lemonde.www:http%2fplanete%2farti
 
 
 
-
-

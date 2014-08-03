@@ -129,6 +129,11 @@ public void getAllResultsAndReInsert(String sourceIndex, String destIndex) throw
 				if (entry.field("image") != null){
 					image = entry.field("image").getValue().toString();
 				}
+				
+				String post_date = "";
+				if (entry.field("post_date") != null){
+					post_date = entry.field("post_date").getValue().toString();
+				}
 		    	bulkRequest.add(client.prepareIndex(destIndex, "doc", entry.field("id").getValue().toString()).setSource(jsonBuilder()
 			        .startObject()
 			        .field("id", entry.field("id").getValue().toString())
@@ -137,7 +142,7 @@ public void getAllResultsAndReInsert(String sourceIndex, String destIndex) throw
 			        .field("content_en", entry.field("content_en").getValue().toString())
 			        .field("content_de", entry.field("content_de").getValue().toString())
 			        .field("url", entry.field("url").getValue().toString())
-			        .field("post_date", entry.field("post_date").getValue().toString())
+			        .field("post_date", post_date)
 			        .field("content", entry.field("content").getValue().toString())
 			        .field("title", entry.field("title").getValue().toString())
 			        .field("title_fr", entry.field("title_fr").getValue().toString())

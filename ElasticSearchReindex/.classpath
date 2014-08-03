@@ -2,7 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/ElasticSearchHelper"/>
 	<classpathentry kind="lib" path="/media/Media2/elasticsearch-1.2.1/lib/elasticsearch-1.2.1.jar"/>
 	<classpathentry kind="lib" path="/media/Media2/elasticsearch-1.2.1/lib/gk-tools.jar"/>
 	<classpathentry kind="lib" path="/media/Media2/elasticsearch-1.2.1/lib/jna-4.1.0.jar"/>
@@ -22,5 +21,6 @@
 	<classpathentry kind="lib" path="/media/Media2/elasticsearch-1.2.1/lib/lucene-spatial-4.8.1.jar"/>
 	<classpathentry kind="lib" path="/media/Media2/elasticsearch-1.2.1/lib/lucene-suggest-4.8.1.jar"/>
 	<classpathentry kind="lib" path="/media/Media2/elasticsearch-1.2.1/lib/spatial4j-0.4.1.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ElasticSearchHelper"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -131,6 +131,7 @@
 	<classpathentry kind="lib" path="/home/yann/gk_nutch/gk_repository/gkplugins/nutchsrc/runtime/local/lib/zookeeper-3.3.2.jar"/>
 	<classpathentry kind="lib" path="/home/yann/gk_nutch/gk_repository/gkplugins/nutchsrc/runtime/local/plugins/gk-htmlparser/tagsoup-1.2.jar"/>
 	<classpathentry kind="lib" path="/home/yann/gk_nutch/gk_repository/gkplugins/nutchsrc/runtime/local/plugins/lib-nekohtml/nekohtml-0.9.5.jar"/>
-	<classpathentry kind="lib" path="/home/yann/Desktop/elasticsearch-langdetect-1.2.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/yann/Desktop/lib/elasticsearch-langdetect-1.2.1.1.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/CosineSimilarity"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

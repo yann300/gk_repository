@@ -23,7 +23,7 @@ public class ElasticSearchIndexCleaner {
 		
 		ArrayList<SearchHit> results = man.getAllResultsLight(sourceIndex);
 		System.out.print("Continue to clean ElasTicSearch ? (y/n)");
-		String input = "y"; //System.console().readLine();
+		String input = System.console().readLine();
 		if (input.equals("y")){
 		ArrayList<String> urls = new ArrayList<String>(); //list of url
 		ArrayList<String> titles = new ArrayList<String>(); //list of url	
@@ -33,20 +33,24 @@ public class ElasticSearchIndexCleaner {
 				SearchHitField url = searchHit.field("url");
 				SearchHitField id = searchHit.field("id");
 				
+				
+				
 				if (id == null){
 					getLogger().log(Level.SEVERE, "id null for " + url.getValue().toString().toLowerCase()); 
 					continue;
 				}
 				
-				if (url.getValue().toString().equals("http://www.voltairenet.org/article154396.html")){
-					@SuppressWarnings("unused")
-					String test = "gf";
-					test = "k";
-				}
-				
 				String urlStr = url.getValue().toString().toLowerCase();	
 				String idStr = id.getValue().toString();
+				 
+				if (title == null){
+					urls.add(urlStr); //first time we saw this url
+					man.deleteEntry(idStr);
+					continue;
+				}
+				
 				String titleStr = title.getValue().toString().toLowerCase().replaceAll(" +","");
+			
 				if (!manageUrl(urls, urlStr, idStr)){
 					manageTitle(titles, titleStr, idStr);			
 				}
