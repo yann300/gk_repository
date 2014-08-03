@@ -21,3 +21,7 @@ http://orientxxi.info
 http://fr.euronews.com
 http://www.bbc.com
 http://antiwar.com
+http://www.cei.ulaval.ca
+http://www.lapresse.ca
+http://www.haaretz.com
+http://www.lequotidien.sn

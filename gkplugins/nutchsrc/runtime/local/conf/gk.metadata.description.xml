@@ -693,4 +693,80 @@ to setup :
 			</Metadatas>
 		</ArticleDefinition>
 	</Site>		
+	
+	<Site url="www.cei.ulaval.ca"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="en_US" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+			<!--  Title managed by fallback -->
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.HtmlDateMetadata" >
+					<Parameters>	
+						<TagName value="strong" />	
+						<AttributeKey value="" />
+						<AttributeValue value="" />		
+						<RegExContent value=".*" />
+						<Dateformat value="HUMAN" />	
+					</Parameters>					
+				</Metadata>		
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>		
+	
+	<Site url="lapresse.ca"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="en_US" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.UrlDateMetadata" >
+					<Parameters>
+						<RegExContent value="\d{5,6}/\d{2,4}" />	
+						<Dateformat value="yyyyMM/dd" />	
+					</Parameters>	
+				</Metadata>						
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.OpenGraphMetadatas" />	
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>		
+	<Site url="haaretz.com"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="en_US" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.AttributeDateMetadata" >
+					<Parameters>	
+						<TagName value="meta" />	
+						<AttributeKey value="itemprop" />
+						<AttributeValue value="datePublished" />		
+						<RegExContent value="\d{2,4}-\d{2,4}-\d{2,4}" />
+						<Dateformat value="yyyy-MM-dd" />	
+						<AttributeContent value="content" />
+					</Parameters>					
+				</Metadata>						
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.OpenGraphMetadatas" />	
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>		
+	
+	<Site url="lequotidien.sn"  >
+		<Metadatas>
+			<BasicMetadata type="locale" value="en_US" />
+		</Metadatas>
+		<ArticleDefinition>
+			<Metadatas>
+				<Metadata type="com.gk.apache.nutch.parse.html.ContentFinder.MetaDataRetriever.HtmlTitleMetadata" >					
+					<Parameters>					
+						<TagName value="h2" />	
+						<AttributeKey value="class" />
+						<AttributeValue value="itemTitle" />	
+						<RegExContent value=".*" />							
+					</Parameters>
+				</Metadata>				
+				<!-- DATE ??!! -->
+			</Metadatas>
+		</ArticleDefinition>
+	</Site>		
 </Sites>

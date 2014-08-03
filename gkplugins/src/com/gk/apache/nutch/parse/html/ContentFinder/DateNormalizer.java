@@ -12,10 +12,20 @@ public class DateNormalizer {
 		this.date = date;
 	}
 	
-	public String normalize(String pattern){
-		Date dateFormatted = this.format(pattern);		
-		SimpleDateFormat outFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-		return outFormat.format(dateFormatted);
+	public String normalize(String pattern)
+	{
+	Date dateFormatted = null;
+	if (pattern.equals("HUMAN"))
+	{
+	DateParser parser = new DateParser();
+	dateFormatted = parser.parse(this.date);
+	}
+	else
+	{
+	dateFormatted = format(pattern);
+	}
+	SimpleDateFormat outFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+	return outFormat.format(dateFormatted);
 	}
 	
 	public String normalize(){

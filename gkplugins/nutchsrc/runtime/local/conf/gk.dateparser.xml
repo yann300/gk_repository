@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<date>
+	<years>
+		<year>2008</year>
+		<year>2009</year>
+		<year>2010</year>
+		<year>2011</year>
+		<year>2012</year>
+		<year>2013</year>
+		<year>2014</year>
+		<year>2015</year>
+	</years>
+	<months>
+		<month value="01" >(janvier|january)</month>
+		<month value="02" >(février|february)</month>
+		<month value="03" >(mars|march)</month>
+		<month value="04" >(avril|april)</month>
+		<month value="05" >(mai|may)</month>
+		<month value="06" >(juin|june)</month>
+		<month value="07" >(juillet|july)</month>
+		<month value="08" >(aout|august)</month>
+		<month value="09" >(septembre|september)</month>
+		<month value="10" >(octobre|october)</month>
+		<month value="11" >(novembre|november)</month>
+		<month value="12" >(décembre|december)</month>
+	</months>
+	<days>
+		<day>10</day>
+		<day>11</day>
+		<day>12</day>
+		<day>13</day>
+		<day>14</day>
+		<day>15</day>
+		<day>16</day>
+		<day>17</day>
+		<day>18</day>
+		<day>19</day>
+		<day>20</day>
+		<day>21</day>
+		<day>22</day>
+		<day>23</day>
+		<day>24</day>
+		<day>25</day>
+		<day>26</day>
+		<day>27</day>
+		<day>28</day>
+		<day>29</day>
+		<day>30</day>
+		<day>31</day>
+		<day>(01|1)</day>
+		<day>(02|2)</day>
+		<day>(03|3)</day>
+		<day>(04|4)</day>
+		<day>(05|5)</day>
+		<day>(06|6)</day>
+		<day>(07|7)</day>
+		<day>(08|8)</day>
+		<day>(09|9)</day>
+	</days>
+</date>

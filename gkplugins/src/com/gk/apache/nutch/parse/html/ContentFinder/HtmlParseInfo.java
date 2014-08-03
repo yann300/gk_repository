@@ -13,8 +13,13 @@ import org.w3c.dom.NodeList;
 public class HtmlParseInfo {
 	private static final int PARAGRAPH_WORD_COUNT = 10; 
 	public ArrayList<Node> TimeTags;
+	public ArrayList<Node> TitleTags;
 	public ArrayList<Node> H1Tags;
 	public ArrayList<Node> H2Tags;
+	public ArrayList<Node> H3Tags;
+	public ArrayList<Node> H4Tags;
+	public ArrayList<Node> H5Tags;
+	public ArrayList<Node> H6Tags;
 	public ArrayList<Node> ArticleTags;
 	public ArrayList<Node> MainTags;
 	public ArrayList<Node> ContentNodes;
@@ -28,6 +33,11 @@ public class HtmlParseInfo {
 		this.ParagraphParentNodesWordCount = new HashMap<Node,Integer> ();
 		this.H1Tags = new ArrayList<Node>();
 		this.H2Tags = new ArrayList<Node>();
+		this.H3Tags = new ArrayList<Node>();
+		this.H4Tags = new ArrayList<Node>();
+		this.H5Tags = new ArrayList<Node>();
+		this.H6Tags = new ArrayList<Node>();
+		this.TitleTags = new ArrayList<Node>();
 		this.ArticleTags = new ArrayList<Node>();
 		this.MainTags = new ArrayList<Node>();
 		this.ContentNodes = new ArrayList<Node>();
@@ -39,6 +49,18 @@ public class HtmlParseInfo {
 	public ArticleMetadata getMetadata(){
 		 return metadata_finder.getResolvedMetadata();
 	 }
+	
+	public ArrayList<Node> getHtags()
+	{
+		ArrayList<Node> Htags = new ArrayList<Node>();
+		Htags.addAll(this.H1Tags);
+		Htags.addAll(this.H2Tags);
+		Htags.addAll(this.H3Tags);
+		Htags.addAll(this.H4Tags);
+		Htags.addAll(this.H5Tags);
+		Htags.addAll(this.H6Tags);
+		return Htags;
+	}
 	
 	private void manageParagraphParent(Node parentnode){
 		for (Iterator<Node> iterator = this.ParagraphParentNodes.keySet().iterator(); iterator.hasNext();) {
@@ -85,6 +107,18 @@ public class HtmlParseInfo {
 			if ("h2".equals(node.getNodeName().toLowerCase())) {
 				this.H2Tags.add(node);
 			}	
+			if ("h3".equals(node.getNodeName().toLowerCase())) {
+				this.H3Tags.add(node);
+			}
+			if ("h4".equals(node.getNodeName().toLowerCase())) {
+				this.H4Tags.add(node);
+			}
+			if ("h5".equals(node.getNodeName().toLowerCase())) {
+				this.H5Tags.add(node);
+			}
+			if ("h6".equals(node.getNodeName().toLowerCase())) {
+				this.H6Tags.add(node);
+			}
 			
 			/*if ("time".equals(node.getNodeName().toLowerCase())) {
 				this.TimeTags.add(node);

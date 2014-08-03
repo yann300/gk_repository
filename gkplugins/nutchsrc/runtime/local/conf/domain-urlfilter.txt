@@ -29,4 +29,8 @@ cetri.be
 euronews.com
 bbc.com
 antiwar.com
+www.cei.ulaval.ca
+lapresse.ca
+haaretz.com
+lequotidien.sn
 

@@ -3,19 +3,22 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/home/yann/gk_repository/gkplugins/nutchsrc/runtime/local/lib"/>
-	<classpathentry kind="lib" path="/home/yann/Desktop/jackson-all-1.6.1.jar"/>
-	<classpathentry kind="lib" path="/home/yann/Desktop/jettison-1.0.1.jar"/>
-	<classpathentry kind="lib" path="/home/yann/Desktop/jaxrs-ri/lib/jersey-client.jar"/>
-	<classpathentry kind="lib" path="/home/yann/Desktop/jaxrs-ri/lib/jersey-common.jar"/>
-	<classpathentry kind="lib" path="/home/yann/Desktop/jaxrs-ri/lib/jersey-container-servlet.jar"/>
-	<classpathentry kind="lib" path="/home/yann/Desktop/jaxrs-ri/lib/jersey-container-servlet-core.jar"/>
-	<classpathentry kind="lib" path="/home/yann/Desktop/jaxrs-ri/lib/jersey-server.jar"/>
-	<classpathentry kind="lib" path="/home/yann/Desktop/jaxrs-ri/api/javax.ws.rs-api-2.0.jar"/>
-	<classpathentry kind="lib" path="/home/yann/Desktop/jersey-multipart-1.18.jar"/>
-	<classpathentry kind="lib" path="/home/yann/Desktop/javax.servlet-3.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="/home/yann/gk_nutch/gk_repository/gkplugins/nutchsrc/runtime/local/lib"/>
 	<classpathentry kind="lib" path="/home/yann/gk_nutch/gk_repository/gkenginefront/WebContent/WEB-INF/lib"/>
+	<classpathentry kind="lib" path="/home/yann/Desktop/lib/jaxrs-ri/api/javax.ws.rs-api-2.0.jar"/>
+	<classpathentry kind="lib" path="/home/yann/Desktop/lib/com.fasterxml.jackson.core.jar"/>
+	<classpathentry kind="lib" path="/home/yann/Desktop/lib/com.fasterxml.jackson.databind.jar"/>
+	<classpathentry kind="lib" path="/home/yann/Desktop/lib/com.google.guava_1.6.0.jar"/>
+	<classpathentry kind="lib" path="/home/yann/Desktop/lib/elasticsearch-langdetect-1.2.1.1.jar"/>
+	<classpathentry kind="lib" path="/home/yann/Desktop/lib/jackson-all-1.6.1.jar"/>
+	<classpathentry kind="lib" path="/home/yann/Desktop/lib/jackson-annotations-2.3.0.jar"/>
+	<classpathentry kind="lib" path="/home/yann/Desktop/lib/jackson-core-2.3.3.jar"/>
+	<classpathentry kind="lib" path="/home/yann/Desktop/lib/jackson-databind-2.3.3.jar"/>
+	<classpathentry kind="lib" path="/home/yann/Desktop/lib/javax.servlet-3.0.jar"/>
+	<classpathentry kind="lib" path="/home/yann/Desktop/lib/jersey-multipart-1.18.jar"/>
+	<classpathentry kind="lib" path="/home/yann/Desktop/lib/jettison-1.0.1.jar"/>
+	<classpathentry kind="lib" path="/home/yann/Desktop/lib/prettytime-nlp-3.2.5.Final.jar"/>
+	<classpathentry kind="lib" path="/home/yann/Desktop/lib/trident-ml-0.0.3.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

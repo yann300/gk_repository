@@ -1,15 +1,19 @@
 package com.gk.apache.nutch.parse.html.ContentFinder;
 
 import java.net.URL;
+import java.util.ArrayList;
+
 import org.apache.hadoop.conf.Configuration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.DocumentFragment;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+
 import com.gk.apache.nutch.parse.html.DOMContentUtils;
 import com.gk.apache.nutch.parse.html.MetaContentManager;
 import com.gk.apache.nutch.parse.html.HtmlParserResult.HtmlParserResult;
+import com.gk.tools.CosineSimilarity.CosineSimilarity;
 
 public class ContentFinder {
 	
@@ -39,17 +43,30 @@ public class ContentFinder {
 		return this.parseInfo.getMetadata();
 	}
 	
-	public String getTitle()
-	{		
-		if (this.parseInfo.getMetadata().metadata.containsKey(MetaContentManager.TITLE_FIELD)){
-			String title = this.parseInfo.getMetadata().metadata.get(MetaContentManager.TITLE_FIELD);
-			if ("".equals(title.trim())) {
-				title = "NO TITLE";
-			}
-			return title;
-		}
-		return "NO TITLE";
-	}
+	 public String getTitle()
+	 {
+	 if (this.parseInfo.getMetadata().metadata.containsKey("title"))
+	 {
+	 String title = (String)this.parseInfo.getMetadata().metadata.get("title");
+	 if ((title == null) || ("".equals(title.trim()))) {
+	 return getHTitle();
+	 }
+	 return title;
+	 }
+	 return getHTitle();
+	 }
+
+	 private String getHTitle()
+	 {
+	 String content = getText();
+	 ArrayList<Node> Htags = this.parseInfo.getHtags();
+	 if (Htags.size() == 0) {
+	 return content.substring(0, 120) + "...";
+	 }
+	 CosineSimilarity similarity = new CosineSimilarity();
+	 Node bestRelevantNode = similarity.getBestRelevantNodeFrom(content, (Node[])Htags.toArray(new Node[Htags.size()]), (Node[])this.parseInfo.TitleTags.toArray(new Node[this.parseInfo.TitleTags.size()]));
+	 return bestRelevantNode.getTextContent();
+	 }
 	
 	public String getPostedDate()
 	{		

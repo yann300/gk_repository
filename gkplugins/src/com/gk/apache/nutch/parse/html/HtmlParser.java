@@ -354,10 +354,12 @@ private DocumentFragment parse(InputSource input) throws Exception {
 	  parser.parse(input,res);
 	  return res;
   }
-
-  @Override
-public void setConf(Configuration conf) {
+  public static Configuration conf_static;
+  
+  @Override  
+  public void setConf(Configuration conf) {
     this.conf = conf;
+    conf_static = conf;
     if (getConf() != null)
     {
     	this.htmlParseFilters = new ParseFilters(getConf());
