@@ -1,5 +1,5 @@
 
-curl -XGET 'http://localhost:9200/index/doc/fr.lemonde.www:http%2fplanete%2farticle%2f2014%2f07%2f31%2fvirus%2Debola%2Dla%2Dsierra%2Dleone%2Ddecrete%2Dl%2Detat%2Dd%2Durgence%5F4465166%5F3244.html'
+curl -XGET 'localhost:9200/gkindex/doc/com.nouvelobs.tempsreel:http%2fmonde%2f20140802.OBS5366%2fbarack-obama-nous-avons-torture-des-gens.html'
 
 
 

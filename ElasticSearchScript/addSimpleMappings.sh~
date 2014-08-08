@@ -1,4 +1,4 @@
-curl -XPUT 'http://localhost:9200/gkindex/doc/_mapping' -d '  
+curl -XPUT 'http://localhost:9200/index/doc/_mapping' -d '  
       {
 	"doc" : {
 		"properties" : {

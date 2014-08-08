@@ -16,6 +16,7 @@ import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.search.SearchType;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.common.unit.TimeValue;
+import org.elasticsearch.common.xcontent.XContentBuilder;
 import org.elasticsearch.node.Node;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
@@ -125,35 +126,38 @@ public void getAllResultsAndReInsert(String sourceIndex, String destIndex) throw
 		    for (SearchHit entry : hits) {
 		        //Handle the hit...
 		    	hitsnb++;
-		    	String image = "";
-				if (entry.field("image") != null){
-					image = entry.field("image").getValue().toString();
+				
+				XContentBuilder jSON = jsonBuilder()
+		        .startObject()
+		        .field("id", entry.field("id").getValue().toString())
+		        .field("customRelevance", entry.field("customRelevance").getValue().toString())
+		        .field("content_fr", entry.field("content_fr").getValue().toString())
+		        .field("content_en", entry.field("content_en").getValue().toString())
+		        .field("content_de", entry.field("content_de").getValue().toString())
+		        .field("url", entry.field("url").getValue().toString())
+		        .field("content", entry.field("content").getValue().toString())
+		        .field("title", entry.field("title").getValue().toString())
+		        .field("title_fr", entry.field("title_fr").getValue().toString())
+		        .field("title_en", entry.field("title_en").getValue().toString())
+		        .field("title_de", entry.field("title_de").getValue().toString());
+				
+				if (entry.field("post_date") != null){
+					jSON = jSON.field("post_date", entry.field("post_date").getValue().toString());
 				}
 				
-				String post_date = "";
-				if (entry.field("post_date") != null){
-					post_date = entry.field("post_date").getValue().toString();
+				if (entry.field("image") != null){
+					jSON = jSON.field("image", entry.field("image").getValue().toString());
 				}
-		    	bulkRequest.add(client.prepareIndex(destIndex, "doc", entry.field("id").getValue().toString()).setSource(jsonBuilder()
-			        .startObject()
-			        .field("id", entry.field("id").getValue().toString())
-			        .field("customRelevance", entry.field("customRelevance").getValue().toString())
-			        .field("content_fr", entry.field("content_fr").getValue().toString())
-			        .field("content_en", entry.field("content_en").getValue().toString())
-			        .field("content_de", entry.field("content_de").getValue().toString())
-			        .field("url", entry.field("url").getValue().toString())
-			        .field("post_date", post_date)
-			        .field("content", entry.field("content").getValue().toString())
-			        .field("title", entry.field("title").getValue().toString())
-			        .field("title_fr", entry.field("title_fr").getValue().toString())
-			        .field("title_en", entry.field("title_en").getValue().toString())
-			        .field("title_de", entry.field("title_de").getValue().toString())
-			        .field("image", image)
-			    .endObject()));
+				
+				jSON = jSON.endObject();
+				
+		    	bulkRequest.add(client.prepareIndex(destIndex, "doc", entry.field("id").getValue().toString()).setSource(jSON));
 		    }		    
 		    BulkResponse response =  bulkRequest.execute().actionGet();
 		    this.logger.log(Level.INFO, hitsnb + " doc reindexed");
 		    this.logger.log(Level.INFO,"failure : " + response.hasFailures());
+		    this.logger.log(Level.INFO,"failure : " + response.buildFailureMessage());
+		    
 		    //Break condition: No hits are returned
 		    
 		}	
