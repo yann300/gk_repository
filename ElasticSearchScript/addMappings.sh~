@@ -5,9 +5,6 @@ curl -XPUT 'http://localhost:9200/index/doc/_mapping' -d '
 				"customRelevance" : {
 			  		"type" :    "float"
 				},
-				"customRelevance_focus" : {
-			  		"type" :    "float"
-				},
 				"content_fr": {
 					"index_analyzer": "custom_analyzer_fr",
 					"search_analyzer": "custom_search_analyzer",

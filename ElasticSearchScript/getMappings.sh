@@ -1,1 +1,1 @@
-curl -XGET 'http://localhost:9200/index/_mapping'
+curl -XGET 'http://localhost:9200/gkindex/_mapping'

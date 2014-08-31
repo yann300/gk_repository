@@ -56,7 +56,8 @@ public class ElasticSearchBatchManager {
 			}
 			response = client.prepareIndex(indexName, "doc").setSource(jsonBuilder()
 			        .startObject()
-			        .field("customRelevance", entry.field("customRelevance").getValue().toString())
+			        .field("customRelevance", Float.parseFloat(entry.field("customRelevance").getValue().toString()))
+			        .field("customRelevance_focus", Float.parseFloat(entry.field("customRelevance_focus").getValue().toString()))
 			        .field("content_fr", entry.field("content_fr").getValue().toString())
 			        .field("content_en", entry.field("content_en").getValue().toString())
 			        .field("content_de", entry.field("content_de").getValue().toString())
@@ -97,6 +98,7 @@ public void getAllResultsAndReInsert(String sourceIndex, String destIndex) throw
 		        .setIndices(sourceIndex)
 		        .setScroll(new TimeValue(60000))			        
 		        .addField("customRelevance")
+		        .addField("customRelevance_focus")
 		        .addField("id")
 			        .addField("content_fr")
 			        .addField("content_en")
@@ -130,7 +132,8 @@ public void getAllResultsAndReInsert(String sourceIndex, String destIndex) throw
 				XContentBuilder jSON = jsonBuilder()
 		        .startObject()
 		        .field("id", entry.field("id").getValue().toString())
-		        .field("customRelevance", entry.field("customRelevance").getValue().toString())
+		        .field("customRelevance",Float.parseFloat(entry.field("customRelevance").getValue().toString()))
+		        .field("customRelevance_focus", Float.parseFloat(entry.field("customRelevance_focus").getValue().toString()))
 		        .field("content_fr", entry.field("content_fr").getValue().toString())
 		        .field("content_en", entry.field("content_en").getValue().toString())
 		        .field("content_de", entry.field("content_de").getValue().toString())
@@ -193,5 +196,15 @@ public void getAllResultsAndReInsert(String sourceIndex, String destIndex) throw
 		}
 		this.logger.log(Level.INFO,"found " + list.size() + " entries");
 		return list;
+	}
+
+	public void alterDocEntry(String indexName, String id, String script) {
+		// TODO Auto-generated method stub
+		try{
+			client.prepareUpdate(indexName, "doc", id).setScript(script).execute().actionGet();
+		}
+		catch (Exception ex){
+			this.logger.log(Level.WARNING, ex.getMessage());
+		}
 	}
 }

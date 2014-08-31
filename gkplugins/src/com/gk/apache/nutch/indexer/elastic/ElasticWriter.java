@@ -67,6 +67,10 @@ public class ElasticWriter implements NutchIndexWriter {
     }
     source.put("customRelevance", 1);
     bulkLength += 1;
+    
+    source.put("customRelevance_focus", 1);
+    bulkLength += 1;
+    
     request.setSource(source);
     
     // Add this indexing request to a bulk request

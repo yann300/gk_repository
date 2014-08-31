@@ -53,7 +53,7 @@
 
 <property>
   <name>elastic.index</name>
-  <value>index</value>
+  <value>gkindex</value>
   <description>
   The name of the elasticsearch index. Will normally be autocreated if it
   doesn't exist.
